@@ -1,0 +1,92 @@
+{
+  "_embedded": {
+    "todos": [
+      {
+        "todoName": "Todo 10",
+        "description": "Todo Description 10",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/todos/10"
+          },
+          "todo": {
+            "href": "http://localhost:8080/todos/10"
+          }
+        }
+      },
+      {
+        "todoName": "Todo 9",
+        "description": "Todo Description 9",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/todos/9"
+          },
+          "todo": {
+            "href": "http://localhost:8080/todos/9"
+          }
+        }
+      },
+      {
+        "todoName": "Todo 8",
+        "description": "Todo Description 8",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/todos/8"
+          },
+          "todo": {
+            "href": "http://localhost:8080/todos/8"
+          }
+        }
+      },
+      {
+        "todoName": "Todo 7",
+        "description": "Todo Description 7",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/todos/7"
+          },
+          "todo": {
+            "href": "http://localhost:8080/todos/7"
+          }
+        }
+      },
+      {
+        "todoName": "Todo 6",
+        "description": "Todo Description 6",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/todos/6"
+          },
+          "todo": {
+            "href": "http://localhost:8080/todos/6"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "first": {
+      "href": "http://localhost:8080/todos?page=0&size=5&sort=id,desc"
+    },
+    "prev": {
+      "href": "http://localhost:8080/todos?page=0&size=5&sort=id,desc"
+    },
+    "self": {
+      "href": "http://localhost:8080/todos"
+    },
+    "next": {
+      "href": "http://localhost:8080/todos?page=2&size=5&sort=id,desc"
+    },
+    "last": {
+      "href": "http://localhost:8080/todos?page=2&size=5&sort=id,desc"
+    },
+    "profile": {
+      "href": "http://localhost:8080/profile/todos"
+    }
+  },
+  "page": {
+    "size": 5,
+    "totalElements": 15,
+    "totalPages": 3,
+    "number": 1
+  }
+}
