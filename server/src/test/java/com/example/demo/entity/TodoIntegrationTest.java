@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
@@ -15,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:test/test.properties")
-@Sql({ "classpath:test/test-data.sql" })
+@Sql({"classpath:test/test-data.sql"})
 public class TodoIntegrationTest {
 
     private static final String URL = "/todos/";
@@ -48,6 +50,22 @@ public class TodoIntegrationTest {
         // assert
         Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
         Assertions.assertThat(responseEntity.getBody()).isNull();
+    }
+
+    @Test
+    public void saveTodo() {
+        // arrange
+        Todo todo = new Todo();
+        todo.setId(10L);
+        todo.setTodoName("100");
+        todo.setDescription("100");
+        HttpEntity<Todo> requestEntity = new HttpEntity<Todo>(todo);
+        // act
+        ResponseEntity<Todo> responseEntity = testRestTemplate.exchange(URL ,HttpMethod.POST, requestEntity,  Todo.class);
+
+        // assert
+        Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        Assertions.assertThat(responseEntity.getBody().getTodoName()).isEqualTo("100");
     }
 
 
